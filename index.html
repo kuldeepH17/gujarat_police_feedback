@@ -30,7 +30,7 @@
             <a class="nav-link" href="contact_details.html"><i class="fa-solid fa-phone"></i> Contact Details</a>
           </li>
           <li>
-            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+            <button type="button" class="btn btn-outline-primary me-2" data-bs-toggle="modal" data-bs-target="#exampleModal">
               Login
             </button>
             <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
@@ -38,20 +38,23 @@
               <div class="modal-dialog">
                 <div class="modal-content">
                   <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="exampleModalLabel">Login</h1>
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Login form</h1>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                   </div>
                   <div class="modal-body">
                     <form>
                       <div class="mb-3">
                         <label for="email" class="form-label">Email address</label>
-                        <input type="email" class="form-control" id="email" placeholder="Enter your email address">
+                        <input type="email" class="form-control" id="email" placeholder="Enter your email address"/>
                       </div>
                       <div class="mb-3">
                         <label for="password" class="form-label">Password</label>
-                        <input type="password" class="form-control" id="password">
+                        <input type="password" class="form-control" id="password" placeholder="Enter your password"/>
                       </div>
-                      <button type="submit" class="btn btn-primary text-center">Login</button>
+                      <div class="text-center">
+                        <button type="submit" class="btn btn-primary mb-3">Login</button>
+                        <p>Not have account? <a href="#">Signup now</a></p>
+                      </div>
                     </form>
                   </div>
                 </div>
@@ -59,32 +62,35 @@
             </div>
           </li>
           <li>
-            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+            <button type="button" class="btn btn-outline-primary me-2" data-bs-toggle="modal" data-bs-target="#exampleModal2">
               Sign up
             </button>
-            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+            <div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel2"
               aria-hidden="true">
               <div class="modal-dialog">
                 <div class="modal-content">
                   <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="exampleModalLabel">Sign up</h1>
+                    <h1 class="modal-title fs-5" id="exampleModalLabel2">Sign up</h1>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                   </div>
                   <div class="modal-body">
                     <form>
                       <div class="mb-3">
-                        <label for="email" class="form-label">Email address</label>
-                        <input type="email" class="form-control" id="email" placeholder="Enter your email address">
+                        <label for="email2" class="form-label">Email address</label>
+                        <input type="email" class="form-control" id="email2" placeholder="Enter your email address"/>
                       </div>
                       <div class="mb-3">
-                        <label for="password" class="form-label">Password</label>
-                        <input type="password" class="form-control" id="password">
+                        <label for="password2" class="form-label">Password</label>
+                        <input type="password" class="form-control" id="password2" placeholder="Enter your password"/>
                       </div>
                       <div class="mb-3">
-                        <label for="newpassword" class="form-label">New password</label>
-                        <input type="password" class="form-control" id="newpassword">
+                        <label for="repeatpassword" class="form-label">Repeat password</label>
+                        <input type="password" class="form-control" id="repeatpassword" placeholder="Repeat your password"/>
                       </div>
-                      <button type="submit" class="btn btn-primary">Submit</button>
+                      <div class="text-center">
+                        <button type="submit" class="btn btn-primary mb-3">Submit</button>
+                        <p>Have account? <a href="#">Login now</a></p>
+                      </div>
                     </form>
                   </div>
                 </div>
