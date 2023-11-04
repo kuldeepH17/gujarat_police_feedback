@@ -16,11 +16,11 @@ body {
   } */
 .custom-main {
     background-image: url(images/background_image.jpg);
-    height: 100vh;
+    height: 85vh;
     width: 100%;
     background-size: cover;
     background-position: center;
-    overflow: scroll;
+    /* overflow: scroll; */
 }
 
 .nav-logo {
@@ -43,4 +43,9 @@ body {
 
 .custom-select {
     width: 80%;
+}
+#footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
 }
