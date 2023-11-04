@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,6 +10,7 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 </head>
+
 <body>
   <header>
     <nav class="navbar navbar-expand-lg">
@@ -46,25 +48,27 @@
       </div>
       <div class="row mt-3">
         <div class="col-8 offset-2 mb-3">
-            <select class="form-select" aria-label="Default select example">
-                <option selected>Select District</option>
-                <option value="bhavnagar">Bhavnagar</option>
-                <option value="ahmedabad">Ahmedabad</option>
-              </select>
+          <select class="form-select" id="districtSelect" onchange="populatePoliceStations()">
+            <option value="">Select District</option>
+            <option value="Ahmedabad">Ahmedabad</option>
+            <option value="Surat">Surat</option>
+            <!-- Add more district options here -->
+          </select>
         </div>
-        <div class="col-8 offset-2 mb-3">
-            <select class="form-select" aria-label="Default select example">
-                <option selected>Select Police station</option>
-                <option value="1">One</option>
-                <option value="2">Two</option>
-              </select>
+        <div class="col-8 offset-2 mb-2">
+          <select class="form-select" id="policeStationSelect">
+            <option value="">Select Police Station</option>
+          </select>
         </div>
-      </div>
-      <div class="row">
-        <div class="col-12 text-center">
-            <div class="d-grid gap-2 col-2 mx-auto">
-                <a href="police_station_unit.html" class="btn btn-info">Submit</a>
-            </div>
+        <div class="col-8 offset-2 mb-2">
+          <label for="mobile_number" class="form-label text-light">Aadhar verified number</label>
+          <input type="number" name="mobile_number" id="mobile_number" class="form-control"
+            placeholder="Enter your Aadhar verified number" required />
+        </div>
+        <div class="col-12 text-center mt-2">
+          <div class="d-grid gap-2 col-2 mx-auto">
+            <a href="police_station_unit.html" class="btn btn-info">Submit</a>
+          </div>
         </div>
       </div>
     </div>
@@ -74,43 +78,32 @@
     crossorigin="anonymous"></script>
   <script src="https://kit.fontawesome.com/20994dd270.js" crossorigin="anonymous"></script>
   <script>
-    var stateObject = {
-    "Bhavnagar": { "Sihor": ["north sihor", "south sihor"],
-    "Gariyadhar": ["Thiruvananthapuram", "Palakkad"],
-    "Mahuva": ["North Goa", "South Goa"],
-    },
-    "Ahmdabad": { "Nadiad": ["north nadiad", "south nadiad"],
-    "bopal": ["north bopal", "south bopal"],
-    "satalight": ["North setalite", "South setalite"],
+    const policeStations = {
+      "Ahmedabad": ["Police Station 1", "Police Station 2", "Police Station 3"],
+      "Surat": ["Police Station A", "Police Station B", "Police Station C"]
+      // Add more districts and their police stations here
+    };
+
+    function populatePoliceStations() {
+      const districtSelect = document.getElementById("districtSelect");
+      const policeStationSelect = document.getElementById("policeStationSelect");
+      const selectedDistrict = districtSelect.value;
+
+      // Clear existing options
+      policeStationSelect.innerHTML = '<option value="">Select Police Station</option>';
+
+      // Populate with police stations based on the selected district
+      if (selectedDistrict in policeStations) {
+        const stations = policeStations[selectedDistrict];
+        stations.forEach((station) => {
+          const option = document.createElement("option");
+          option.value = station;
+          option.text = station;
+          policeStationSelect.appendChild(option);
+        });
+      }
     }
-    
-    
-    }
-    window.onload = function () {
-    var countySel = document.getElementById("countySel"),
-    stateSel = document.getElementById("stateSel"),
-    districtSel = document.getElementById("districtSel");
-    for (var country in stateObject) {
-    countySel.options[countySel.options.length] = new Option(country, country);
-    }
-    countySel.onchange = function () {
-    stateSel.length = 1; // remove all options bar first
-    districtSel.length = 1; // remove all options bar first
-    if (this.selectedIndex < 1) return; // done
-    for (var state in stateObject[this.value]) {
-    stateSel.options[stateSel.options.length] = new Option(state, state);
-    }
-    }
-    countySel.onchange(); // reset in case page is reloaded
-    stateSel.onchange = function () {
-    districtSel.length = 1; // remove all options bar first
-    if (this.selectedIndex < 1) return; // done
-    var district = stateObject[countySel.value][this.value];
-    for (var i = 0; i < district.length; i++) {
-    districtSel.options[districtSel.options.length] = new Option(district[i], district[i]);
-    }
-    }
-    }
-    </script>
+  </script>
 </body>
+
 </html>
